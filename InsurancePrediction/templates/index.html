@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Insurance Cost Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Linear Regression Model</h1>
+    <h2>Insurance Cost Prediction</h2>
+
+    <div class="model-info">
+
+        <div class="left">
+            <img src="{{ url_for('static', filename='images/image.png') }}" width="600">
+            <p class="stats">
+                Accuracy: 0.8098 <br>
+                Loss: 0.1669
+            </p>
+        </div>
+
+        <div class="right">
+            
+            <pre><h3>Dataset</h3>
+<table border="1" cellpadding="5" cellspacing="0">
+  <thead>
+    <tr>
+      <th>age</th>
+      <th>sex</th>
+      <th>bmi</th>
+      <th>children</th>
+      <th>smoker</th>
+      <th>region</th>
+      <th>charges</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>19</td><td>female</td><td>27.9</td><td>0</td><td>yes</td><td>southwest</td><td>16884.924</td></tr>
+    <tr><td>18</td><td>male</td><td>33.77</td><td>1</td><td>no</td><td>southeast</td><td>1725.5523</td></tr>
+    <tr><td>28</td><td>male</td><td>33</td><td>3</td><td>no</td><td>southeast</td><td>4449.462</td></tr>
+    <tr><td>33</td><td>male</td><td>22.705</td><td>0</td><td>no</td><td>northwest</td><td>21984.47061</td></tr>
+    <tr><td>32</td><td>male</td><td>28.88</td><td>0</td><td>no</td><td>northwest</td><td>3866.8552</td></tr>
+    <tr><td>31</td><td>female</td><td>25.74</td><td>0</td><td>no</td><td>southeast</td><td>3756.6216</td></tr>
+    <tr><td>46</td><td>female</td><td>33.44</td><td>1</td><td>no</td><td>southeast</td><td>8240.5896</td></tr>
+    <tr><td>37</td><td>female</td><td>27.74</td><td>3</td><td>no</td><td>northwest</td><td>7281.5056</td></tr>
+    <tr><td>37</td><td>male</td><td>29.83</td><td>2</td><td>no</td><td>northeast</td><td>6406.4107</td></tr>
+    <tr><td>60</td><td>female</td><td>25.84</td><td>0</td><td>no</td><td>northwest</td><td>28923.13692</td></tr>
+    <tr><td>25</td><td>male</td><td>26.22</td><td>0</td><td>no</td><td>northeast</td><td>2721.3208</td></tr>
+    <tr><td>62</td><td>female</td><td>26.29</td><td>0</td><td>yes</td><td>southeast</td><td>27808.7251</td></tr>
+    <tr><td>23</td><td>male</td><td>34.4</td><td>0</td><td>no</td><td>southwest</td><td>1826.843</td></tr>
+  </tbody>
+</table>
+            </pre>
+        </div>
+
+    </div>
+
+
+    <div class="form-box">
+
+        <form method="post">
+
+            <label>Age</label>
+            <input type="number" name="age" step="1" required>
+
+            <label>BMI</label>
+            <input type="number" name="bmi" step="0.1" required>
+
+            <label>Children</label>
+            <input type="number" name="children" step="1" required>
+
+            <label>Sex</label>
+            <select name="sex">
+                <option>male</option>
+                <option>female</option>
+            </select>
+
+            <label>Smoker</label>
+            <select name="smoker">
+                <option>yes</option>
+                <option>no</option>
+            </select>
+
+            <label>Region</label>
+            <select name="region">
+                <option>northeast</option>
+                <option>northwest</option>
+                <option>southeast</option>
+                <option>southwest</option>
+            </select>
+
+            <button type="submit">Predict Cost</button>
+
+        </form>
+
+        {% if prediction %}
+        <h3 class="result">
+            Predicted Insurance Cost: ${{ prediction }}
+        </h3>
+        {% endif %}
+
+        {% if error %}
+        <p class="error">{{ error }}</p>
+        {% endif %}
+
+    </div>
+
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+<img src="https://i.pinimg.com/736x/0d/ca/63/0dca63e602aa2004dd6fe7fc5c1f2309.jpg" width="200px">
+
+</body>
+</html>
