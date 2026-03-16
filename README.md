@@ -4,7 +4,7 @@ Linear Regression AI that attemps to predict insurance cost by some qualities
 
 Сайт оформлен в папке InsurancePrediction/, где лежит фронтенд и серверная часть.
 
-Ссылка на репозиторий: https://github.com/Progibat0r/InsuranceCodePredictor
+Ссылка на репозиторий: https://github.com/Progibat0r/InsuranceCostPredictor-LinearRegression-
 
 
 -------------Структура проекта--------------------------------------------------------------------------------------------------------
